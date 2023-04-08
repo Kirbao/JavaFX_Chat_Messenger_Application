@@ -58,7 +58,7 @@ public class ClientController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String messageToSend = tf_message.getText();
-                if (messageToSend.isEmpty()) {
+                if (!messageToSend.isEmpty()) {
                     HBox hBox = new HBox();
                     hBox.setAlignment(Pos.CENTER_RIGHT);
 
