@@ -32,7 +32,7 @@ public class ServerController implements Initializable {
     @FXML
     private TextField tf_message;
     @FXML
-    VBox vBoxMessages;
+    VBox vbox_messages;
     @FXML
     private ScrollPane sp_main;
     private Server server;
@@ -46,14 +46,14 @@ public class ServerController implements Initializable {
             e.printStackTrace();
             System.out.println("Error creating Server ... ");
         }
-        vBoxMessages.heightProperty().addListener(new ChangeListener<Number>() {
+        vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 sp_main.setVvalue((Double) newValue);
             }
         });
 
-            server.receiveMessageFromClient(vBoxMessages);
+            server.receiveMessageFromClient(vbox_messages);
 
             button_send.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -76,7 +76,7 @@ public class ServerController implements Initializable {
                         text.setFill(Color.color(0.934, 0.925, 0.996));
 
                         hBox.getChildren().add(textFlow);
-                        vBoxMessages.getChildren().add(hBox);
+                        vbox_messages.getChildren().add(hBox);
 
                         server.sendMessageToClient(messageToSend);
                         tf_message.clear();
